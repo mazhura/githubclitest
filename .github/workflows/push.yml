@@ -20,7 +20,7 @@ jobs:
         run: |
           if [ "${{ github.event_name }}" == "push" ]; then
             echo "This workflow does not support pull requests."
-            exit 0
+            exit 1
           fi
       - name: Copy .env
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
