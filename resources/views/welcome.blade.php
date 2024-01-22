@@ -8,8 +8,13 @@
         </style>
     </head>
     <body>
-        <div>
+        <div id="app">
+            <example-component>
+
+            </example-component>
 
         </div>
     </body>
+
+    <script src="{{ mix('/js/app.js') }}"></script>
 </html>
