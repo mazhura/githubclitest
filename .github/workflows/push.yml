@@ -16,12 +16,6 @@ jobs:
         with:
           php-version: '7.4'
       - uses: actions/checkout@v3
-      - name: Check if pull request
-        run: |
-          if [ "${{ github.event_name }}" == "push" ]; then
-            echo "This workflow does not support pull requests."
-            exit 1
-          fi
       - name: Copy .env
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
       - name: Install Dependencies
