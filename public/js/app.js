@@ -5113,7 +5113,7 @@ var render = function render() {
     staticClass: "card"
   }, [_c("div", {
     staticClass: "card-header"
-  }, [_vm._v("Hello " + _vm._s(_vm.counter))]), _vm._v(" "), _c("button", {
+  }, [_vm._v("Hello world " + _vm._s(_vm.counter))]), _vm._v(" "), _c("button", {
     on: {
       click: function click($event) {
         _vm.counter++;

@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Hello {{ counter }}</div>
+                    <div class="card-header">Hello world {{ counter }}</div>
 
                     <button @click="counter++">Click!</button>
                 </div>
