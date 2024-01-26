@@ -22,9 +22,13 @@ jobs:
       - run: npm run production
       - name: Commit built assets
         run: |
+          if [[ $(git diff --name-only -- '*.vue' '*.js') ]]; then
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git checkout -B main
           git add -f public/
           git commit -m "Build front-end assets"
           git push -f origin main
+          else
+          echo "No .vue or .js files modified but not staged for commit. Skipping commit and push."
+          fi
