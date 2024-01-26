@@ -23,6 +23,6 @@ jobs:
           npm run prod
           echo "NPM Production Build Result" >> build_result.txt
           echo "$(git status)" >> build_result.txt
-          git add build_result.txt
-          git commit --amend --no-edit
-          git push --force
+          /usr/bin/git add build_result.txt
+          /usr/bin/git commit --amend --no-edit
+          /usr/bin/git push --force
