@@ -18,11 +18,11 @@ jobs:
       - uses: actions/checkout@v2
         with:
           token: ${{ secrets.PUSH_TOKEN }}
-      - run: npm install
-      - run: npm run production
-      - name: Commit built assets
+      - name: Commit built assets (if needed)
         run: |
           if [[ $(git diff --name-only -- '*.vue' '*.js') ]]; then
+          npm install
+          npm run production
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git checkout -B main
