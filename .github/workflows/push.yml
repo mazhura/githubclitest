@@ -16,15 +16,15 @@ jobs:
         with:
           php-version: '7.4'
       - uses: actions/checkout@v3
-      - name: Install Dependencies
-        run: npm install
-      - name: Build Production
+        with:
+          token: ${{ secrets.PUSH_TOKEN }}
+      - run: npm install
+      - run: npm run production
+      - name: Commit built assets
         run: |
-          npm run prod
-          echo "NPM Production Build Result" >> build_result.txt
-          echo "$(git status)" >> build_result.txt
-          git config --global user.email "mazhura1@gmail.com"
-          git config --global user.name "Mykhailo mazhura"
-          /usr/bin/git add build_result.txt
-          /usr/bin/git commit --amend --no-edit
-          /usr/bin/git push --force
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git checkout -B main
+          git add -f public/
+          git commit -m "Build front-end assets"
+          git push -f origin main
