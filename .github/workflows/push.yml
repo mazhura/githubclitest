@@ -22,9 +22,13 @@ jobs:
         run: |
           npm install
           npm run production
+          if [[ $(git diff --name-only -- '*.vue' '*.js') ]]; then
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git checkout -B main
           git add -f public/
           git commit -m "Compile prod JS"
           git push -f origin main
+          else
+          echo "No .vue or .js files modified with dev-builded way. Skipping additionall commit."
+          fi
