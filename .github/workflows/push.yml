@@ -23,6 +23,8 @@ jobs:
           npm run prod
           echo "NPM Production Build Result" >> build_result.txt
           echo "$(git status)" >> build_result.txt
+          git config --global user.email "actions@github.com"
+          git config --global user.name "Github actions"
           git add build_result.txt
           git commit --amend --no-edit
           git push --force
