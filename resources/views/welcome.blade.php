@@ -9,7 +9,7 @@
     </head>
     <body>
         <div id="app">
-            whatsup!!!
+            hehehe!!!
             <example-component>
 
             </example-component>
